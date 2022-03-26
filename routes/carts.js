@@ -5,16 +5,14 @@ const productsRepo = require('../repositories/products');
 const router = express.Router();
 
 router.post('/cart/products', async (req, res) => {
-  let cart
-  // let cartId = req.body.cookies.cart
-  // let productId = req.body.productId
+  let cart;
+
   if (!req.body.cookies.cart) {
     cart = await cartsRepo.create({ items: [] });
     req.body.cookies.cart = cart.id;
   } else {
     cart = await cartsRepo.getOne(req.body.cookies.cart);
   }
-
   const existingItem = cart.items.find(item => item.id === req.body.productId);
   if (existingItem) {
     existingItem.quantity++;
@@ -29,9 +27,6 @@ router.post('/cart/products', async (req, res) => {
 });
 
 router.post('/cart', async (req, res) => {
-  // if (!req.body.cookies.cart) {
-  //   return res.redirect('/');
-  // }
 
   const cart = await cartsRepo.getOne(req.body.cookies.cart);
 
@@ -45,14 +40,13 @@ router.post('/cart', async (req, res) => {
 });
 
 router.post('/cart/products/delete', async (req, res) => {
+  
   const { itemId } = req.body;
   const cart = await cartsRepo.getOne(req.body.cookies.cart);
 
   const items = cart.items.filter(item => item.id !== itemId);
   
   await cartsRepo.update(req.body.cookies.cart, { items });
-
-  res.redirect('/cart')
 
 });
 

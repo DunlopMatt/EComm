@@ -20,7 +20,6 @@ module.exports = {
     console.log(req.headers)
     if(!req.headers.authorization) {
       throw Error ("Auth Required")
-      // return res.redirect('/signin');
     }
     next();
   }

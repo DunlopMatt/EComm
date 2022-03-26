@@ -49,7 +49,6 @@ router.post('/admin/products/:id/edit',
     return { product };
   }), 
   async (req, res) => {
-
     const changes = req.body;
     if (req.file) {
       changes.image = req.file.buffer.toString('base64');
@@ -59,17 +58,13 @@ router.post('/admin/products/:id/edit',
     } catch (err) {
       return res.send('Could not find item');
     }
-    // res.redirect('/admin/products');
     res.send(req.body)
   } 
 );
 
 router.post('/admin/products/:id/delete', requireAuth, async (req, res) => {
-  // Auth 
-
   await productsRepo.delete(req.params.id);
   res.send(req.body)
-  // res.redirect('/admin/products');
 });
 
 module.exports = router;
