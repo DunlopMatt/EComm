@@ -17,7 +17,6 @@ module.exports = {
     };
   },
   requireAuth(req, res, next) {
-    console.log(req.headers)
     if(!req.headers.authorization) {
       throw Error ("Auth Required")
     }

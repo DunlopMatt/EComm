@@ -48,6 +48,8 @@ router.post('/cart/products/delete', async (req, res) => {
   
   await cartsRepo.update(req.body.cookies.cart, { items });
 
+  res.send(cart);
+
 });
 
 

@@ -90,16 +90,11 @@
     "id": "1983bc85"
   },
   {
-    "items": [
-      {
-        "id": "ac3d7258",
-        "quantity": 1
-      },
-      {
-        "id": "e7fccbd5",
-        "quantity": 1
-      }
-    ],
+    "items": [],
     "id": "15c182e2"
+  },
+  {
+    "items": [],
+    "id": "9e3d1193"
   }
 ]
