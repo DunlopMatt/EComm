@@ -1,24 +1,25 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const useAuth = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [user, setUser] = useState(localStorage.getItem("user") || "");
-  const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.getItem("user")))
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    Boolean(localStorage.getItem("user"))
+  );
 
   useEffect(() => {
-  localStorage.setItem("user", user || "");
-  localStorage.setItem("isLoggedIn", isLoggedIn ? true : "");
-}, [isLoggedIn, user])
+    localStorage.setItem("user", user || "");
+    localStorage.setItem("isLoggedIn", isLoggedIn ? true : "");
+  }, [isLoggedIn, user]);
 
-  function login(user){
+  function login(user) {
     setUser(user);
     setIsLoggedIn(true);
     navigate("/admin/products");
   }
 
-  function signOut(){
+  function signOut() {
     setUser("");
     setIsLoggedIn("");
   }
@@ -29,5 +30,5 @@ export const useAuth = () => {
 
     isLoggedIn,
     user,
-  }
-}
+  };
+};
