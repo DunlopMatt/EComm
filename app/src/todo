@@ -1,0 +1,50 @@
+> Sign in
+  > Check if signed in /
+  > Send form /
+  > Handdle errors /
+  > Check long-in details against data-base / 
+  > Change state to Logged in /
+  > Redirect to Products /
+
+> Sign up
+  > send form /
+  > Handdle errors /
+  > add new user to dataBase /
+  > Redirect to products /
+
+
+> Sign out 
+  > set Loggined in to false && remove user ID /
+  > redirct to signin /
+
+>Admin Products logic
+  > Delete /
+    > Make request to server /
+    > Refresh page /
+  > Edit
+    > Get single product /
+    > Fill out form with data /
+      > fix image bug /
+      > Handdle errors /
+    > Post new data /
+  > New
+    > Post request /
+        > fix image bug /
+    > Handdle errors /
+    > Add new Product to DB /
+
+> Cart logic
+  > Cookies /
+  > empty product bug /
+  > Get data for cart repo /
+  > Iterate though Products /
+  > delete item from cart
+
+> Clean code
+  > format code
+  > code review
+  > .m file
+  > abstract axios 
+
+>Github
+  > app folder 
