@@ -2,11 +2,14 @@
   "name": "ecomm",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd app && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
