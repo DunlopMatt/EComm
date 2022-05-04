@@ -16,6 +16,6 @@ export const useProducts = () => {
 
   return {
     products,
-    getProducts
+    getProducts,
   };
 };

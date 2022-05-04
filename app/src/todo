@@ -38,14 +38,18 @@
   > empty product bug /
   > Get data for cart repo /
   > Iterate though Products /
-  > delete item from cart
+  > delete item from cart /
 
 > Clean code
-  > format code
+  > format code / 
   > code review
   > .m file
   > abstract axios 
 
 >Github
   > app folder /
+<<<<<<< HEAD
   > merge to master 
+=======
+  > push to master
+>>>>>>> 1caa318b2fac4f80c5f69d55480b0712408412bd

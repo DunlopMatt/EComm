@@ -2,32 +2,32 @@ import React, { useCallback } from "react";
 import { Banner } from "../components/Banner";
 import { useProducts } from "../hooks/useProducts";
 import { useCookies } from "react-cookie";
-const axios = require('axios');
+const axios = require("axios");
 
 export const Product = ({ product }) => {
-
-  const [productId, setproductId] = React.useState('');
+  const [productId, setproductId] = React.useState("");
 
   const [cookies, setCookie] = useCookies(["cartId"]);
-    
-  const handleSubmit = useCallback( async (e) => {
-    setproductId(product.id)
-    e.preventDefault();
-    try {
-      const response = await axios({
-        method: 'POST',
-        url: `http://localhost:4000/cart/products`,
-        data: {productId: product.id, cookies}
-      })
-      let cartId = response.data.id
-      setCookie("cart", cartId, {path: "/"});
-      console.log(productId);
-    } catch (error) {
-      console.log(error)
-    }
-  },
-  [cookies, productId, product.id, setCookie]
-  )
+
+  const handleSubmit = useCallback(
+    async (e) => {
+      setproductId(product.id);
+      e.preventDefault();
+      try {
+        const response = await axios({
+          method: "POST",
+          url: `http://localhost:4000/cart/products`,
+          data: { productId: product.id, cookies },
+        });
+        let cartId = response.data.id;
+        setCookie("cart", cartId, { path: "/" });
+        console.log(productId);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [cookies, productId, product.id, setCookie]
+  );
 
   return (
     <div className="column is-one-quarter">
@@ -57,13 +57,12 @@ const ProductList = ({ products }) => {
 };
 
 export const Products = () => {
-  const {products} = useProducts();
-  console.log(products)
-
+  const { products } = useProducts();
+  console.log(products);
 
   return (
     <>
-      <Banner/>
+      <Banner />
       <section>
         <div className="container">
           <div className="columns">

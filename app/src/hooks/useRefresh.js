@@ -1,10 +1,8 @@
+import React from "react";
 
-import React from 'react';
+export const useRefresh = () => {
+  const [state, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
 
-
-export const  useRefresh = () => {
-const [state, updateState] = React.useState();
-const forceUpdate = React.useCallback(() => updateState({}), []);
-
-return [forceUpdate, state]
-}
+  return [forceUpdate, state];
+};

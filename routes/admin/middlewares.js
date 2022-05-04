@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator');
+const { validationResult } = require("express-validator");
 
 module.exports = {
   handleErrors(dataCb) {
@@ -7,7 +7,7 @@ module.exports = {
 
       if (!errors.isEmpty()) {
         let data = {};
-        if(dataCb) {
+        if (dataCb) {
           data = await dataCb(req);
         }
         return res.send({ errors, ...data });
@@ -17,9 +17,9 @@ module.exports = {
     };
   },
   requireAuth(req, res, next) {
-    if(!req.headers.authorization) {
-      throw Error ("Auth Required")
+    if (!req.headers.authorization) {
+      throw Error("Auth Required");
     }
     next();
-  }
+  },
 };

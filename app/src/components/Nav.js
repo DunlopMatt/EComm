@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
@@ -21,10 +21,10 @@ export const Nav = () => {
                 <i className="fa fa-shopping-cart"></i> Cart
               </Link>
               <div className="navbar-item">
-              <Link to="/admin/products">
-                <i className="fa fa-star"></i> Admin
-              </Link>
-            </div>
+                <Link to="/admin/products">
+                  <i className="fa fa-star"></i> Admin
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,24 +1,23 @@
-const express = require('express');
+const express = require("express");
 
-const { handleErrors } = require('./middlewares');
-const usersRepo = require('../../repositories/users');
+const { handleErrors } = require("./middlewares");
+const usersRepo = require("../../repositories/users");
 const {
   requireEmail,
   requirePassword,
   requirePasswordConfirmation,
   requireEmailExists,
-  requireValidPasswordForUser
-} = require('./validators');
+  requireValidPasswordForUser,
+} = require("./validators");
 
 const router = express.Router();
 
-router.get('/signup', (req, res) => {
+router.get("/signup", (req, res) => {
   res.send(req.body);
 });
 
-
 router.post(
-  '/signup',
+  "/signup",
   [requireEmail, requirePassword, requirePasswordConfirmation],
   handleErrors(),
   async (req, res) => {
@@ -26,20 +25,20 @@ router.post(
     const user = await usersRepo.create({ email, password });
 
     req.session.userId = user.id;
-    res.send({user})
+    res.send({ user });
   }
 );
 
-router.get('/signout', (req, res) => {
+router.get("/signout", (req, res) => {
   req.session = null;
 });
 
-router.get('/signin', (req, res) => {
+router.get("/signin", (req, res) => {
   res.send(req.session.userId);
 });
 
 router.post(
-  '/signin',
+  "/signin",
   [requireEmailExists, requireValidPasswordForUser],
   handleErrors(),
   async (req, res) => {
@@ -49,7 +48,7 @@ router.post(
 
     req.session.userId = user.id;
 
-    res.send({user});
+    res.send({ user });
   }
 );
 
