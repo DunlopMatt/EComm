@@ -24,11 +24,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, '.app/build')));
-
+app.use(express.static(path.join(__dirname, 'app/build')));
 
 // app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+//   res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
 // });
 
 app.use(authRouter);
@@ -36,6 +35,8 @@ app.use(adminProductsRouter);
 app.use(productsRouter);
 app.use(cartsRouter);
 
-app.listen(4000, () => {
+port = process.env.PORT || 4000
+
+app.listen(port, () => {
   console.log('Listening');
 });
