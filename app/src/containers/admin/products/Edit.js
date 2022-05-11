@@ -13,7 +13,7 @@ function useProduct(id, cb = () => {}) {
     const getProduct = async () => {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:4000/admin/products/${id}/edit`,
+        url: `https://react-app-ecomm.herokuapp.com/admin/products/${id}/edit`,
         headers: { Authorization: auth.user },
       });
       setProduct(response.data.product);
@@ -56,7 +56,7 @@ export const Edit = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:4000/admin/products/${id}/edit`,
+        url: `https://react-app-ecomm.herokuapp.com/admin/products/${id}/edit`,
         data: data,
         headers: {
           Authorization: auth.user,

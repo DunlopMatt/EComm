@@ -26,7 +26,7 @@ export const Signup = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://localhost:4000/signup",
+        url: "https://react-app-ecomm.herokuapp.com/signup",
         data: {
           email: formValue.email,
           password: formValue.password,

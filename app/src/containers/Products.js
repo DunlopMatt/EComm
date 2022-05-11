@@ -16,7 +16,7 @@ export const Product = ({ product }) => {
       try {
         const response = await axios({
           method: "POST",
-          url: `http://localhost:4000/cart/products`,
+          url: `https://react-app-ecomm.herokuapp.com/cart/products`,
           data: { productId: product.id, cookies },
         });
         let cartId = response.data.id;

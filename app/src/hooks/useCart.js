@@ -13,7 +13,7 @@ export const useCart = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:4000/cart`,
+        url: `https://react-app-ecomm.herokuapp.com/cart`,
         data: {
           cookies,
         },

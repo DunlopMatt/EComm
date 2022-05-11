@@ -9,7 +9,7 @@ const Item = ({ item, cookies, refresh }) => {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:4000/cart/products/delete`,
+        url: `https://react-app-ecomm.herokuapp.com/cart/products/delete`,
         data: { itemId: item.id, cookies },
       });
       console.log(response);

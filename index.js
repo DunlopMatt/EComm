@@ -24,10 +24,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, 'app/build')));
+app.use(express.static(path.join(__dirname, '/app')));
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/app/build', 'index.html'));
 });
 
 app.use(authRouter);
