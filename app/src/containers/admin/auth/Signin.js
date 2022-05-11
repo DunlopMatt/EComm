@@ -25,7 +25,7 @@ export const Signin = () => {
     try {
       const response = await axiosInstance({
         method: "POST",
-        url: "https://react-app-ecomm.herokuapp.com/signin",
+        url: "/signin",
         data: {
           email: formValue.email,
           password: formValue.password,

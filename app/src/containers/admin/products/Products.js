@@ -12,7 +12,7 @@ export const Product = ({ product, getProducts = () => {} }) => {
     try {
       const response = await axiosInstance({
         method: "POST",
-        url: `https://react-app-ecomm.herokuapp.com/admin/products/${product.id}/delete`,
+        url: `/admin/products/${product.id}/delete`,
         headers: { Authorization: auth.user },
       });
       console.log(response);

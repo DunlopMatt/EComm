@@ -22,7 +22,7 @@ export const New = () => {
     try {
       const response = await axiosInstance({
         method: "POST",
-        url: "https://react-app-ecomm.herokuapp.com/admin/products/new",
+        url: "/admin/products/new",
         data: data,
         headers: {
           Authorization: auth.user,
