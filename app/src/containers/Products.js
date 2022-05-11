@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Banner } from "../components/Banner";
 import { useProducts } from "../hooks/useProducts";
 import { useCookies } from "react-cookie";
-const axios = require("axios");
+import { axiosInstance } from "../config";
 
 export const Product = ({ product }) => {
   const [productId, setproductId] = React.useState("");
@@ -14,9 +14,9 @@ export const Product = ({ product }) => {
       setproductId(product.id);
       e.preventDefault();
       try {
-        const response = await axios({
+        const response = await axiosInstance({
           method: "POST",
-          url: `https://react-app-ecomm.herokuapp.com/cart/products`,
+          url: `/cart/products`,
           data: { productId: product.id, cookies },
         });
         let cartId = response.data.id;

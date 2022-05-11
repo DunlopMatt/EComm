@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-const axios = require("axios");
+import { axiosInstance } from "../../../config";
 
 export const Signup = () => {
   const auth = useAuth();
@@ -24,9 +24,9 @@ export const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
-        url: "https://react-app-ecomm.herokuapp.com/signup",
+        url: "/signup",
         data: {
           email: formValue.email,
           password: formValue.password,

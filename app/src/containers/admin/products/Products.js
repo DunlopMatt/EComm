@@ -1,7 +1,7 @@
 import { Link, Navigate } from "react-router-dom";
+import { axiosInstance } from "../../../config";
 import { useAuth } from "../../../hooks/useAuth";
 import { useProducts } from "../../../hooks/useProducts";
-const axios = require("axios");
 
 export const Product = ({ product, getProducts = () => {} }) => {
   const auth = useAuth();
@@ -10,7 +10,7 @@ export const Product = ({ product, getProducts = () => {} }) => {
     e.preventDefault();
 
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
         url: `https://react-app-ecomm.herokuapp.com/admin/products/${product.id}/delete`,
         headers: { Authorization: auth.user },

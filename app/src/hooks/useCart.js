@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useCookies } from "react-cookie";
-const axios = require("axios");
+import { axiosInstance } from "../config";
 
 export const useCart = () => {
   const [items, setItems] = useState([]);
@@ -11,9 +11,9 @@ export const useCart = () => {
   };
   const getItems = useCallback(async () => {
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
-        url: `https://react-app-ecomm.herokuapp.com/cart`,
+        url: `/cart`,
         data: {
           cookies,
         },

@@ -3,7 +3,7 @@ const productsRepo = require("../repositories/products");
 
 const router = express.Router();
 
-router.get("/backend", async (req, res) => {
+router.get("/api", async (req, res) => {
   const products = await productsRepo.getAll();
   res.send({ products });
 });

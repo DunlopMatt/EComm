@@ -1,15 +1,15 @@
 import { useCart } from "../hooks/useCart";
 import React from "react";
-const axios = require("axios");
+import { axiosInstance } from "../config";
 
 const Item = ({ item, cookies, refresh }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
-        url: `https://react-app-ecomm.herokuapp.com/cart/products/delete`,
+        url: `/cart/products/delete`,
         data: { itemId: item.id, cookies },
       });
       console.log(response);

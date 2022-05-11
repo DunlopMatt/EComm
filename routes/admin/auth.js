@@ -12,12 +12,12 @@ const {
 
 const router = express.Router();
 
-router.get("/signup", (req, res) => {
+router.get("api/signup", (req, res) => {
   res.send(req.body);
 });
 
 router.post(
-  "/signup",
+  "api/signup",
   [requireEmail, requirePassword, requirePasswordConfirmation],
   handleErrors(),
   async (req, res) => {
@@ -29,16 +29,16 @@ router.post(
   }
 );
 
-router.get("/signout", (req, res) => {
+router.get("api/signout", (req, res) => {
   req.session = null;
 });
 
-router.get("/signin", (req, res) => {
+router.get("api/signin", (req, res) => {
   res.send(req.session.userId);
 });
 
 router.post(
-  "/signin",
+  "api/signin",
   [requireEmailExists, requireValidPasswordForUser],
   handleErrors(),
   async (req, res) => {

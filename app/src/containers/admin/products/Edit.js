@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../../config";
 
 function useProduct(id, cb = () => {}) {
   const [product, setProduct] = useState(null);
@@ -11,7 +11,7 @@ function useProduct(id, cb = () => {}) {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
         url: `https://react-app-ecomm.herokuapp.com/admin/products/${id}/edit`,
         headers: { Authorization: auth.user },
@@ -54,7 +54,7 @@ export const Edit = () => {
 
     e.preventDefault();
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: "POST",
         url: `https://react-app-ecomm.herokuapp.com/admin/products/${id}/edit`,
         data: data,
