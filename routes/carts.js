@@ -4,7 +4,7 @@ const productsRepo = require("../repositories/products");
 
 const router = express.Router();
 
-router.post("api/cart/products", async (req, res) => {
+router.post("/api/cart/products", async (req, res) => {
   let cart;
 
   if (!req.body.cookies.cart) {
@@ -28,7 +28,7 @@ router.post("api/cart/products", async (req, res) => {
   res.send(cart);
 });
 
-router.post("api/cart", async (req, res) => {
+router.post("/api/cart", async (req, res) => {
   const cart = await cartsRepo.getOne(req.body.cookies.cart);
 
   for (let item of cart.items) {
@@ -40,7 +40,7 @@ router.post("api/cart", async (req, res) => {
   res.send({ items: cart.items });
 });
 
-router.post("api/cart/products/delete", async (req, res) => {
+router.post("/api/cart/products/delete", async (req, res) => {
   const { itemId } = req.body;
   const cart = await cartsRepo.getOne(req.body.cookies.cart);
 

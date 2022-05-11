@@ -11,8 +11,8 @@ export const useProducts = () => {
         method: "GET",
         url: "/"
       })
-      let data = response
-      setProducts(data.products);
+      let data = response.data.products
+      setProducts(data);
     } catch (error){
       console.log(error)
     }
